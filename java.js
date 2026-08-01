@@ -12,7 +12,7 @@
         var b=6;
         a= a+1;
         b= b+1;
-        c= b=a;
+        var c= b=a;
         console.log(a);
         console.log(b);
         console.log(c);
@@ -37,7 +37,7 @@
         console.log(e);
 
          //DOUBLE QUOTED +\N
-        var string="my name is\"Nauman-Raza\"and i am a student";
+        var string="my name is \"Nauman-Raza\" and i am a student";
         console.log(string);
         var study= 'i study "computer science"';
         console.log(study);
@@ -46,7 +46,7 @@
         console.log(mystr);
          
         var myname="nauman raza"
-        var names="how are you?"+myname+"fine!";
+        var names="how are you?" +myname+ "fine!";
         console.log(names);
 
         //to find the first and last letter of the name; INDEX;
@@ -57,7 +57,7 @@
         namelength=name.length;
         console.log(namelength);
         firstLetterOfName=name[0];
-        lastLetterOfName=name[name.length-1]
+        lastLetterOfName=name[name.length-1];
         console.log(firstLetterOfName);
         console.log(lastLetterOfName);
 
@@ -71,11 +71,12 @@
         function wear() {
             var clothe="sweater";
             console.log(clothe);
+            return clothe;
         }
         function wordBlanks(word1,word2,word3,word4)
         {
             var result="";
-             result+=word1+word2+word3+word4;
+             result+=word1 +word2 +word3 +word4;
             return result;
     
         }
@@ -97,7 +98,7 @@
 
       //nested array 
       var array=[[1,2,3],[4,5,6],[7,8,9]];
-      array.push=([10,11,12]);
+      array.push([10,11,12]);
       array.unshift(0);// insert and pop value form the start of the array
       var removeFromArray=array.pop();
       console.log(array);
@@ -122,19 +123,15 @@ console.log("before");
 
 console.log(  queue(testArray, 5));
 
-//if else 
-
 function tovote(age) {
-    if (age >=18)
-{
-    return "person is eligible";
+    if (age >= 18) {
+        return "Person is eligible";
+    } else {
+        return "Not eligible";
+    }
 }
-else (age <18)
-{
-    return "not eligible";
-}
-}
-    console.log(tovote(20));
+console.log(tovote(20)); // Person is eligible
+console.log(tovote(16)); // Not eligible
 
     function calculateGrade(marks) {
     if (marks < 0 || marks > 100) {
@@ -159,24 +156,25 @@ console.log(calculateGrade(enter));
 function weekdays(val) {
     var answer="";
     switch(val){
-    case a:
+    case "a":
             answer="monday";
             break;
-            case b:
+            case "b":
                 answer="tuesday"
                 break;
-                case c:
+                case "c":
                     answer="wednesday";
                 break;
-                case d:
+                case "d":
                     answer="thursday";
                     break;
-                default:"invalid";
+                default:
+    answer = "invalid";
     }
     return answer;
     
 }
-console.log(weekdays(a));
+console.log(weekdays("a"));
 
 function chainToSwitch(val) {
     var answers="";
@@ -197,7 +195,8 @@ function chainToSwitch(val) {
                             answers="ate nine";
                             break;
     
-        default:answers;
+        default:
+            answers = "invalid";
 
     }
     return answers;
@@ -206,30 +205,36 @@ function chainToSwitch(val) {
 console.log(chainToSwitch(1));
 
 
-var count=0;
+var count = 0;
+
 function countingCards(cards) {
-    switch(cards){
+    switch (cards) {
         case 1:
-            case 2:
-                case 3:
-                    case 4:
-                        count++;
-                        break;
-                        case 5:
-                            case 6:
-                                case 7:
-                                    count--;
-                                    break;
-                                    default:"enter from 1 to 7";
+        case 2:
+        case 3:
+        case 4:
+            count++;
+            break;
+        case 5:
+        case 6:
+        case 7:
+            count--;
+            break;
+        default:
+            return "Enter a number from 1 to 7";
     }
-    var holdbet="hold";
-    if(count>0){
-        holdbet="bet";
+
+    var holdbet = "hold";
+
+    if (count > 0) {
+        holdbet = "bet";
     }
-    
+
+    return count + " " + holdbet;
 }
-    var enter = Number(prompt("Enter the card Number:"));
-console.log(calculateGrade(enter));
+
+var enter = Number(prompt("Enter the card Number:"));
+console.log(countingCards(enter));
 
 //objects
 var name={
@@ -242,7 +247,7 @@ name.name="salman";
 name.lastname="raza";
 delete name.name;
 var test=name.name;
-var tests=name["20"];
+var tests=name["age"];
 console.log(test);   
 console.log(tests); 
 
@@ -259,15 +264,14 @@ function objects(val) {
     
 }
 function checkObj(checkProp) {
-    if(objects.hasOwnProperty(checkProp)){
-        return objects[checkProp];
+    if(lookup.hasOwnProperty(checkProp)){
+        return lookup[checkProp];
     }
     else{
         return "not found";
     }
     }
-console.log(objects("chicago"));
-console.log(objects("hello"));
+console.log(objects("charlie"));
 
 var myStorage={
     "car":{
@@ -295,13 +299,12 @@ console.log(array);
 var ourarray=[];
 for (var i=0; i<5; i++){
      ourarray.push(i);
-     i++;
 }
 console.log(ourarray);
 
 //odd numbers
 var ourarr=[];
-for (var i=1; i>=10; i+=2){
+for (var i=1; i<=10; i+=2){
      ourarr.push(i);
      i++;
 }
@@ -311,7 +314,6 @@ console.log(ourarr);
 var  myarr=[];
 for (var i=10; i>=1; i-=2){
      myarr.push(i);
-     i++;
 }
 console.log(myarr);
 
@@ -331,7 +333,7 @@ function multiplyAll(arr) {
             product*=arr[i][j];
         }
     }
-    return project;
+    return product;
     
 }
 var product=multiplyAll([[1,2],[3,4],[5,6]]);
@@ -343,7 +345,7 @@ var i=10;
 do{
     myarray.push(i);
     i++;
-}while(i<5)
+}while(i<5);
     
     console.log(i,myarray);
 
@@ -393,18 +395,16 @@ function checkScope() {
     return i;
     
 }
-console.log(checkScope);
+console.log(checkScope());
 
 function my(val) {
-    const sentence="nauman";       
-    sentence=str+"is amazaing";          //will give error because of the const keyword
+    let sentence = val + " is amazing";
 
-    for (var i=0;i<str.length;i++)
-    {
+    for (var i = 0; i < val.length; i++) {
         console.log(sentence);
     }
+
     return 0;
-    
 }
 console.log(my("salman"));
 
